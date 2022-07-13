@@ -7,6 +7,9 @@ sudo cd .
 # install xcode CLI  
 xcode-select --install
 
+#------------------------------------------------------------
+
+
 # Check for Homebrew to be present, install if it's missing  
 if test ! $(which brew); then  
     echo "Installing homebrew..."  
@@ -44,6 +47,9 @@ PACKAGES=(
 	wget
 	yarn
 	youtube-dl
+    zsh
+    zsh-completions
+    zsh-syntax-highlighting
 )
 
 echo "Installing packages..."  
@@ -54,6 +60,9 @@ brew link --force readline
 
 echo "Cleaning up..."  
 brew cleanup
+
+#------------------------------------------------------------
+
 
 # install pip
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
@@ -80,6 +89,8 @@ PYTHON_PACKAGES=(
 	setuptools
 )  
 pip install ${PYTHON_PACKAGES[@]}
+
+#------------------------------------------------------------
 
 
 echo "Installing essential casks..."
@@ -142,6 +153,7 @@ OPTIONALCASKS=(
 	dwarf-fortress-lmp
 	freetube
 	freeyourmusic
+	gearboy
 	handbrake
 	hyper
 	krita
@@ -151,6 +163,7 @@ OPTIONALCASKS=(
 	spark
 	steam
 	tor-browser
+	transmission
 )
 
 echo "Would you like to install optional cask apps?"
@@ -161,12 +174,19 @@ case "$choice" in
   * ) echo "invalid";;
 esac
 
+#------------------------------------------------------------
+
+
 #install Tidal Cycles
 curl https://raw.githubusercontent.com/tidalcycles/tidal-bootstrap/master/tidal-bootstrap.command -sSf | sh
 
+
+#------------------------------------------------------------
+
+
 echo "Configuring OS..."
 # Set fast key repeat rate  
-# defaults write NSGlobalDomain KeyRepeat -int 0
+#defaults write NSGlobalDomain KeyRepeat -int 0
 
 # Require password as soon as screensaver or sleep mode starts  
 defaults write com.apple.screensaver askForPassword -int 1  
@@ -179,5 +199,34 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true  
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
+# Always show scroll bars
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
-echo "Macbook setup completed!"
+# Expanded Save Menus by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Remove default apps from the dock
+defaults delete com.apple.dock persistent-apps
+defaults delete com.apple.dock persistent-others
+killall Dock
+
+
+#------------------------------------------------------------
+
+echo "Installing and configuring zsh..."
+chsh -s $(which zsh)
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+sed -i '' 's/^plugins=(.*/plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search golang sudo)/g' ~/.zshrc
+
+sed -i '' 's/^ZSH_THEME.*/ZSH_THEME=powerlevel10k\/powerlevel10k/g' ~/.zshrc
+
+curl "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf"
+
+p10k configure
+
+echo "Macbook setup completed! Restart to let the changes/installations take full effect."
