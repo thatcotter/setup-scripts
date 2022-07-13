@@ -9,6 +9,7 @@ curl https://raw.githubusercontent.com/thatcotter/setup-scripts/main/macSartup.s
 ```
 
 [Setting up zsh with p10k](https://github.com/kasuskasus1/ohmyzsh_powerlevel10k)
+
 [Vim Configuration](https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/)
 
 ## Debian Linux
