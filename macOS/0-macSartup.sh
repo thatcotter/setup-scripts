@@ -41,5 +41,10 @@ bash ./6-zsh.sh
 
 #------------------------------------------------------------
 
+# install zsh and powerline with p10k
+bash ./7-vim.sh
+
+#------------------------------------------------------------
+
 echo "Macbook setup completed! 🎉"
 echo "Restart to let the changes/installations take full effect"
