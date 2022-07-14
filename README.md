@@ -3,9 +3,9 @@ Setup scripts for automating getting up and running with new machines
 
 
 ## MacOS Script
-In a terminal, paste the following:
+Clone this repo, then cd into the macOS folder using the terminal. From there, start the setup process by entering
 ```
-curl https://raw.githubusercontent.com/thatcotter/setup-scripts/main/macOS/macSartup.sh -sSf | sh
+bash ./0-macSetup.sh
 ```
 
 [Setting up zsh with p10k](https://github.com/kasuskasus1/ohmyzsh_powerlevel10k)
