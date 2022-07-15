@@ -14,9 +14,10 @@ brew upgrade
 PACKAGES=(  
 	bat
 	cask
-	cmake
+	# cmake
 	ctags
-	ffmpeg
+	direnv
+	# ffmpeg
 	flac
 	fzf
 	ghc
@@ -45,6 +46,10 @@ PACKAGES=(
 
 echo "Installing packages..."  
 brew install ${PACKAGES[@]}
+
+# extra steps for glslViewer
+brew install pkg-config cmake ncurses
+brew install ffmpeg --build-from-source
 
 # link readline  
 brew link --force readline

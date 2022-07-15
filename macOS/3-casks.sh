@@ -19,7 +19,6 @@ CASKS=(
 	blender
 	cinder
 	discord
-	dolphin
 	dropbox
 	duet
 	electron
