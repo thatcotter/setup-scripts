@@ -17,6 +17,7 @@ $scoopApps = @(
     "cmake",
     "curl",
     "deno",
+    "epic-games-launcher",
     "docker",
     "ffmpeg",
     "git",
