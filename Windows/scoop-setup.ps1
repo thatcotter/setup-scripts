@@ -2,10 +2,18 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 
-# Install scoop buckets
-scoop bucket add extras
-scoop bucket add games
-scoop bucket add nerd-fonts
+# Add scoop buckets
+$buckets = @(
+    "extras",
+    "games",
+    "nerd-fonts",
+    "nonportable"
+)
+
+foreach($bucket in $buckets) {
+    scoop bucket add $bucket
+}
+
 
 # Install desired programs using Scoop
 $scoopApps = @(
@@ -23,11 +31,13 @@ $scoopApps = @(
     "git",
     "github",
     "godot",
+    "handbrake",
     "helix",
     "jetbrains-toolbox"
     "lazydocker",
     "ntop",
     "nvm",
+    "obs-studio",
     "obsidian",
     "oh-my-posh",
     "openscad",
@@ -36,6 +46,7 @@ $scoopApps = @(
     "rustup",
     "slack",
     "vlc",
+    "vscode",
     "winfetch",
     "wiztree",
     "yt-dlp"
