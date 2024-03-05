@@ -29,11 +29,14 @@ $scoopApps = @(
     "epic-games-launcher",
     "docker",
     "ffmpeg",
+    "figma",
+    "firefox",
     "git",
     "github",
     "godot",
     "handbrake",
     "helix",
+    "instant-eyedropper",
     "jetbrains-toolbox",
     "lazydocker",
     "ntop",
@@ -43,6 +46,7 @@ $scoopApps = @(
     "oh-my-posh",
     "openscad",
     "pandoc",
+    "picpick",
     "postman",
     "rustup",
     "slack",
@@ -50,7 +54,8 @@ $scoopApps = @(
     "vscode",
     "winfetch",
     "wiztree",
-    "yt-dlp"
+    "yt-dlp",
+    "zoom"
 )
 
 foreach ($app in $scoopApps) {
