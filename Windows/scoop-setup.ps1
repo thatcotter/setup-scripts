@@ -22,6 +22,7 @@ $scoopApps = @(
     "arduino",
     "blender",
     "bottom",
+    "bugn",
     "cmake",
     "curl",
     "deno",
