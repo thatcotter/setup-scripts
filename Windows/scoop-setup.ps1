@@ -34,7 +34,7 @@ $scoopApps = @(
     "godot",
     "handbrake",
     "helix",
-    "jetbrains-toolbox"
+    "jetbrains-toolbox",
     "lazydocker",
     "ntop",
     "nvm",
