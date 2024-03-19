@@ -108,7 +108,6 @@
           "foreground": "P:white",
           "style": "powerline",
           "template": "\u03BB -> ",
-          "trailing_diamond": "\ue0b0",
           "type": "node",
         }
       ],
