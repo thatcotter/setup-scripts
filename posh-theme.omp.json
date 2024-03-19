@@ -108,7 +108,7 @@
           "foreground": "p:white",
           "leading_diamond": "\ue0b6",
           "style": "diamond",
-          "template": " \u2665 type something",
+          "template": " \ue03bb ",
           "trailing_diamond": "\ue0b0",
         }
       ],
