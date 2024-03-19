@@ -98,13 +98,18 @@
         }
       ],
       "type": "prompt"
-    }
-  ],
-  "secondary_prompt": {
+    },
+    {
+      "alignment": left,
+      "newline": true,
+      "segments": [
         "background": "p:sky",
         "foreground": "P:white",
         "template": "-> "
-    },
+      ],
+      "type": "prompt"
+    }
+  ],
   "final_space": true,
   "version": 2
 }
