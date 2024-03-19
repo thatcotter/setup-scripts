@@ -104,11 +104,12 @@
       "newline": true,
       "segments": [
         {
-          "style": "diamond",
-          "trailing_diamond": "\ue0b0",
           "background": "p:sky",
           "foreground": "P:white",
-          "template": "-> "
+          "style": "diamond",
+          "template": "-> ",
+          "trailing_diamond": "\ue0b0",
+          "type": "node",
         }
       ],
       "type": "prompt"
