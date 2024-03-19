@@ -103,7 +103,7 @@
   "secondary_prompt": {
     "background": "p:teal_blue",
     "foreground": "p:white",
-    "template": " \ue03bb -> ",
+    "template": " > ",
   },
   "final_space": true,
   "version": 2
