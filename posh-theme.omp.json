@@ -104,9 +104,9 @@
       "newline": true,
       "segments": [
         {
-        "background": "p:sky",
-        "foreground": "P:white",
-        "template": "-> "
+          "background": "p:sky",
+          "foreground": "P:white",
+          "template": "-> "
         }
       ],
       "type": "prompt"
