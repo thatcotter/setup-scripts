@@ -104,7 +104,7 @@
       "newline": true,
       "segments": [
         {
-          "background": "p:salmon",
+          "background": "p:teal_blue",
           "foreground": "p:white",
           "leading_diamond": "\u03bb",
           "style": "diamond",
