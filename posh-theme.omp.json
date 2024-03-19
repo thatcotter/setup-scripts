@@ -104,11 +104,11 @@
       "newline": true,
       "segments": [
         {
-          "background": "p:teal_blue",
+          "background": "p:salmon",
           "foreground": "p:white",
           "leading_diamond": "\ue0b6",
           "style": "diamond",
-          "template": " \u2665 ",
+          "template": " \u2665 type something",
           "trailing_diamond": "\ue0b0",
         }
       ],
