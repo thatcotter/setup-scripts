@@ -110,6 +110,7 @@
           "style": "diamond",
           "template": " \ue03bb ",
           "trailing_diamond": "\ue0b0",
+          "type": "node"
         }
       ],
       "type": "prompt"
