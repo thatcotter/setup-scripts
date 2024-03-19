@@ -98,22 +98,6 @@
         }
       ],
       "type": "prompt"
-    },
-    {
-      "alignment": "left",
-      "newline": true,
-      "segments": [
-        {
-          "background": "p:teal_blue",
-          "foreground": "p:white",
-          "leading_diamond": "\u03bb",
-          "style": "diamond",
-          "template": " \ue03bb ",
-          "trailing_diamond": "\ue0b0",
-          "type": "prompt"
-        }
-      ],
-      "type": "prompt"
     }
   ],
   "secondary_prompt": {
