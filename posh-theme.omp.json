@@ -106,7 +106,7 @@
         {
           "background": "p:salmon",
           "foreground": "p:white",
-          "leading_diamond": "\ue0b6",
+          "leading_diamond": "\u03bb",
           "style": "diamond",
           "template": " \ue03bb ",
           "trailing_diamond": "\ue0b0",
