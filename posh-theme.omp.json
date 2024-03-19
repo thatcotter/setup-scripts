@@ -93,7 +93,7 @@
           },
           "style": "diamond",
           "template": " \u2665  {{ .CurrentDate | date .Format }}",
-          "trailing_diamond": "\ue0b0 \n",
+          "trailing_diamond": "\ue0b0",
           "type": "time"
         }
       ],
@@ -104,6 +104,8 @@
       "newline": true,
       "segments": [
         {
+          "style": "diamond",
+          "trailing_diamond": "\ue0b0",
           "background": "p:sky",
           "foreground": "P:white",
           "template": "-> "
