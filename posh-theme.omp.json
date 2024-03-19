@@ -101,8 +101,8 @@
     }
   ],
   "secondary_prompt": {
-        "background": "transparent",
-        "foreground": "#ffffff",
+        "background": "p:sky",
+        "foreground": "P:white",
         "template": "-> "
     },
   "final_space": true,
