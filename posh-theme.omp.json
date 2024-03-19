@@ -106,11 +106,9 @@
         {
           "background": "p:teal_blue",
           "foreground": "p:white",
-          "properties": {
-            "time_format": "15:04"
-          },
+          "leading_diamond": "\ue0b6",
           "style": "diamond",
-          "template": " \u2665 {{ .CurrentDate | date .Format }} ",
+          "template": " \u2665 ",
           "trailing_diamond": "\ue0b0",
           "type": "time"
         }
