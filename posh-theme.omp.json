@@ -116,6 +116,12 @@
       "type": "prompt"
     }
   ],
+  "secondary_prompt": {
+    "background": "p:teal_blue",
+    "foreground": "p:white",
+    "style": "diamond",
+    "template": " \ue03bb -> ",
+  }
   "final_space": true,
   "version": 2
 }
