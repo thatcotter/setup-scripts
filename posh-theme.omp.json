@@ -100,7 +100,7 @@
       "type": "prompt"
     },
     {
-      "alignment": left,
+      "alignment": "left",
       "newline": true,
       "segments": [
         "background": "p:sky",
