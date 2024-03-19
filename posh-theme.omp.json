@@ -100,11 +100,6 @@
       "type": "prompt"
     }
   ],
-  "secondary_prompt": {
-    "background": "p:teal_blue",
-    "foreground": "p:white",
-    "template": " > ",
-  },
   "final_space": true,
   "version": 2
 }
