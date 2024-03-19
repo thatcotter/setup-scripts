@@ -103,6 +103,8 @@
       "alignment": "left",
       "newline": true,
       "segments": [
+        "style": "diamond",
+        "leading_diamond": "\ue0b6",
         "background": "p:sky",
         "foreground": "P:white",
         "template": "-> "
