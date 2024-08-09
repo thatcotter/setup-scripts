@@ -12,11 +12,8 @@ bash ./0-macSetup.sh
 
 [Vim Configuration](https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/)
 
-## Debian Linux
-TK
-
-## Arch Linux
-TK
-
 ## Windows
-TK
+- clone this repo and run the winStartup script
+- with Bug.n active, open the config with ctrl+Win+E. Then replace the contents with the config in this repo.
+
+## Linux TK
