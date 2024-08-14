@@ -2,7 +2,7 @@
 Setup scripts for automating getting up and running with new machines
 
 
-## MacOS Script
+## MacOS
 Clone this repo, then cd into the macOS folder using the terminal. From there, start the setup process by entering
 ```
 bash ./0-macSetup.sh
