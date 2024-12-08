@@ -15,5 +15,6 @@ bash ./0-macSetup.sh
 ## Windows
 - clone this repo and run the winStartup script
 - with Bug.n active, open the config with ctrl+Win+E. Then replace the contents with the config in this repo.
+- Todo: add steps for https://github.com/ChrisTitusTech/winutil
 
 ## Linux TK
