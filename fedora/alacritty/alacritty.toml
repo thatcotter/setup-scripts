@@ -1,0 +1,9 @@
+[general]
+import = ["~/.config/alacritty/rose-pine.toml"]
+
+[window]
+decorations = "Full"
+opacity = 0.9
+
+[font]
+normal = { family = "MesloLGS Nerd Font", style = "Regular" }
