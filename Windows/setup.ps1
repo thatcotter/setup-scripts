@@ -1,15 +1,16 @@
-### Debloating ###
-# Based on this gist: https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/remove-default-apps.ps1
-function debloating {
-    Write-Host -ForegroundColor Cyan "Remove bloatware"
-    Foreach ($blt in $bloatware) {
-        Write-Host -ForegroundColor Red "Removing:" $blt
-        Get-AppxPackage -AllUsers $blt | Remove-AppxPackage
-    }
-    Pause
-    Clear-Host
+# Usage: .\setup.ps1 [-Personal]   (-Personal adds the non-work apps)
+param([switch]$Personal)
+#Requires -RunAsAdministrator
+
+### Install WinGet (preinstalled on Windows 11) ###
+if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+    Install-PackageProvider -Name NuGet -Force | Out-Null
+    Install-Module Microsoft.WinGet.Client -Force -Repository PSGallery
+    Repair-WinGetPackageManager -AllUsers
 }
 
+### Debloating ###
+# Based on this gist: https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/remove-default-apps.ps1
 $bloatware = @(
     # default Windows 11 apps
     "MicrosoftTeams"
@@ -18,7 +19,6 @@ $bloatware = @(
 
     # default Windows 10 apps
     "Microsoft.549981C3F5F10"        # Cortana Offline
-    "Microsoft.OneDriveSync"         # Onedrive
     "Microsoft.3DBuilder"
     "Microsoft.BingFinance"
     "Microsoft.BingNews"
@@ -94,7 +94,6 @@ $bloatware = @(
     "D5EA27B7.Duolingo-LearnLanguagesforFree"
     "DB6EA5DB.CyberLinkMediaSuiteEssentials"
     "DolbyLaboratories.DolbyAccess"
-    "DolbyLaboratories.DolbyAccess"
     "Drawboard.DrawboardPDF"
     "Facebook.Facebook"
     "Fitbit.FitbitCoach"
@@ -113,9 +112,62 @@ $bloatware = @(
     "XINGAG.XING"
     "flaregamesGmbH.RoyalRevolt2"
     "king.com.*"
-    "king.com.BubbleWitch3Saga"
-    "king.com.CandyCrushSaga"
-    "king.com.CandyCrushSodaSaga"
 );
 
-debloating
+$provisioned = Get-AppxProvisionedPackage -Online
+foreach ($app in $bloatware) {
+    Write-Host -ForegroundColor Red "Removing:" $app
+    Get-AppxPackage -AllUsers $app | Remove-AppxPackage -AllUsers
+    # Also remove the provisioned copy so it doesn't come back for new users
+    $provisioned | Where-Object DisplayName -like $app | Remove-AppxProvisionedPackage -Online | Out-Null
+}
+
+### Install apps ###
+# Most apps come from scoop (scoop-setup.ps1); these are the ones scoop doesn't carry
+$wingetApps = @(
+    "AgileBits.1Password",
+    "Anthropic.Claude",
+    "Adobe.CreativeCloud",
+    "Canonical.Ubuntu",
+    "Comfy.ComfyUI-Desktop",
+    "Docker.DockerDesktop",
+    "ElementLabs.LMStudio",
+    "Elgato.StreamDeck",
+    "GitHub.cli",
+    "Google.Chrome",
+    "Insta360.Link.Controller",
+    "MichaelTippach.ASIO4ALL",
+    "Microsoft.VisualStudio.2022.Community",
+    "Mozilla.Firefox",
+    "NDI.NDITools",
+    "ogdesign.Eagle",
+    "RaspberryPiFoundation.RaspberryPiImager",
+    "SonicPi.SonicPi",
+    "SuperCollider.SuperCollider",
+    "Tailscale.Tailscale",
+    "TobiasErichsen.loopMIDI",
+    "Unity.UnityHub",
+    "VCVRack.VCVRack"
+)
+
+$personalWingetApps = @(
+    "Dropbox.Dropbox",
+    "EpicGames.EpicGamesLauncher",
+    "Google.GoogleDrive",
+    "ImputNet.Helium",
+    "TorProject.TorBrowser",
+    "Valve.Steam",
+    "Zen-Team.Zen-Browser"
+)
+
+if ($Personal) {
+    $wingetApps += $personalWingetApps
+    # OneDrive is a Win32 app, not an Appx package. Work laptops usually need it, so only remove it on personal machines
+    winget uninstall --id Microsoft.OneDrive --silent --accept-source-agreements
+}
+
+foreach ($app in $wingetApps) {
+    winget install --id $app --exact --silent --accept-package-agreements --accept-source-agreements
+}
+
+Write-Host -ForegroundColor Magenta "Done. Run scoop-setup.ps1 from a new, non-admin terminal, then work through the manual installs in the README."
